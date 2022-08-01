@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int dp[1001];
+int n;
+
+int main(void)
+{
+	cin >> n;
+
+	dp[1] = 1;
+	dp[2] = 3;
+
+	for (int i = 3; i <= n; i++)
+		dp[i] = dp[i - 1] + dp[i - 2] * 2;
+
+	cout << dp[n] << '\n';
+
+	return 0;
+}
+
+// 핵심내용
+/*
+	i번째의 개수를 구한다고 할 때
+	-> i-1번째에서 가로 길이가 1짜리를 한 개만 추가할 수 있음
+	-> i-2번째에서 가로 길이가 2짜리를 두 개 ( 1x2 두 개, 2x2 한 개 )
+
+	*** (노션에 사진 첨부) ***
+
+*/
